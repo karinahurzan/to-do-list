@@ -32,8 +32,9 @@ This is the backend API for a To-Do List application. It provides endpoints for 
 
 Clone the repository:
 
-git clone https://github.com/your-username/todo-backend.git
-cd todo-backend
+git clone git@github.com:karinahurzan/to-do-list.git
+
+cd to-do-list
 
 Install dependencies:
 
@@ -41,11 +42,13 @@ Install dependencies:
 
 Set up environment variables by creating a .env file:
 
+```
 MONGODB_USER=
 MONGODB_PASSWORD=
 PORT=
 MONGODB_DB=
 MONGODB_URL=
+```
 
 Start the server:
 
@@ -66,15 +69,18 @@ Request Examples
 
 ### Create a to-do:
 
+```
 POST /todos
 {
 "todo": "Buy groceries",
 "priority": 3,
 "status": "undone"
 }
+```
 
 ### Response:
 
+```
 {
 "id": "64f0a8c2f9d5f0b1c1234567",
 "todo": "Buy groceries",
@@ -83,6 +89,7 @@ POST /todos
 "createdAt": "2025-09-29T15:00:00Z",
 "updatedAt": "2025-09-29T15:00:00Z"
 }
+```
 
 ## Validation
 
@@ -106,10 +113,12 @@ The API returns meaningful error messages:
 
 Example:
 
+```
 {
 "status": 400,
 "message": "Todo must be at least 3 characters"
 }
+```
 
 ## Contributing
 
