@@ -12,12 +12,12 @@ export const getAllTodosController = async (req, res) => {
   const { sortBy, sortOrder } = parseSortParams(req.query);
   console.log(sortBy, sortOrder);
 
-  const filter = parseFilteredParams(req.query);
+  const statusType = parseFilteredParams(req.query);
 
   const todos = await getAllTodos({
     sortBy,
     sortOrder,
-    filter,
+    statusType,
   });
 
   res.status(200).json({
