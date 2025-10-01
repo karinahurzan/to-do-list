@@ -25,7 +25,7 @@ export const createTodoSchema = Joi.object({
 });
 
 export const updateTodoSchema = Joi.object({
-  todo: Joi.string().min(3).max(256).required().messages(todoMessage),
+  todo: Joi.string().min(3).max(256).messages(todoMessage),
   priority: Joi.number().min(1).max(10).messages(priorityMessage),
   status: Joi.string().valid('done', 'undone').messages(statusMessage),
 });
