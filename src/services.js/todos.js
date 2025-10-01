@@ -4,22 +4,23 @@ import { ToDoCollection } from '../db/models/todo.js';
 export const getAllTodos = async ({
   sortOrder = SORT_ORDER.ASC,
   sortBy = 'priority',
-  statusType,
-  priority,
+  filter = {},
 }) => {
   const query = ToDoCollection.find();
 
-  if (priority !== undefined) {
-    query.where('priority').equals(priority);
+  if (filter.priority !== undefined) {
+    query.where('priority').equals(filter.priority);
   }
 
-  if (statusType) {
-    query.where('status').equals(statusType);
+  if (filter.statusType) {
+    query.where('status').equals(filter.statusType);
   }
 
   query.sort({ [sortBy]: sortOrder === SORT_ORDER.ASC ? 1 : -1 });
 
-  return await query.exec();
+  const todos = await query.exec();
+
+  return todos;
 };
 
 export const createTodo = async (payload) => {
