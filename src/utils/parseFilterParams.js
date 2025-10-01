@@ -8,6 +8,8 @@ const parseStatus = (statusType) => {
 export const parseFilteredParams = (query) => {
   const { statusType } = query;
 
+  console.log(statusType);
+
   const parsedStatus = parseStatus(statusType);
 
   return {

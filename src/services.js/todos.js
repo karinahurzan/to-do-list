@@ -4,16 +4,12 @@ import { ToDoCollection } from '../db/models/todo.js';
 export const getAllTodos = async ({
   sortOrder = SORT_ORDER.ASC,
   sortBy = 'priority',
-  filter = {},
+  filters = {},
 }) => {
   const query = ToDoCollection.find();
 
-  if (filter.priority !== undefined) {
-    query.where('priority').equals(filter.priority);
-  }
-
-  if (filter.statusType) {
-    query.where('status').equals(filter.statusType);
+  if (filters.statusType) {
+    query.where('status').equals(filters.statusType);
   }
 
   query.sort({ [sortBy]: sortOrder === SORT_ORDER.ASC ? 1 : -1 });
