@@ -124,7 +124,7 @@ Example:
 
 Contributions are welcome! Please open an issue or submit a pull request for improvements or bug fixes.
 
-License
+Licens
 
 This project is licensed under the MIT License.
 
